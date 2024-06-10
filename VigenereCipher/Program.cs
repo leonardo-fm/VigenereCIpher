@@ -44,6 +44,11 @@ class Program
         int keyIndex = 0;
         for (int i = 0; i < plainText.Length; i++)
         {
+            if (plainText[i] == ' ')
+            {
+                cipheredText[i] = plainText[i];
+                continue;
+            }
             cipheredText[i] = CipherChar(plainText[i], key[keyIndex]);
             keyIndex++; 
             keyIndex %= key.Length;
@@ -66,6 +71,11 @@ class Program
         int keyIndex = 0;
         for (int i = 0; i < cipherText.Length; i++)
         {
+            if (cipherText[i] == ' ')
+            {
+                plainText[i] = cipherText[i];
+                continue;
+            }
             plainText[i] = DecipherChar(cipherText[i], key[keyIndex]);
             keyIndex++; 
             keyIndex %= key.Length;
